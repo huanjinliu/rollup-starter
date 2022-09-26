@@ -1,0 +1,49 @@
+{
+  "name": "rollup-starter",
+  "version": "0.0.1",
+  "description": "start a rollup project quickly :)",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rollup --config",
+    "watch": "rollup --config --silence -w",
+    "link": "npm run build && sudo npm link"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huanjinliu/rollup-starter.git"
+  },
+  "keywords": [
+    "rollup",
+    "starter",
+    "lib",
+    "typescript"
+  ],
+  "bin": {
+    "rollup-starter": "link.js"
+  },
+  "author": "huanjin.liu@foxmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huanjinliu/rollup-starter/issues"
+  },
+  "homepage": "https://github.com/huanjinliu/rollup-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/inquirer": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.78.1",
+    "rollup-external-modules": "^2.0.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "inquirer": "^8.0.0"
+  }
+}
