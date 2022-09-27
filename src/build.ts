@@ -214,7 +214,7 @@ const build = async ({
         addScripts["build:silent"] = "rollup --config --silent";
       }
       if (eslint) {
-        addScripts["prettier"] = "prettier --write .";
+        addScripts["prettier"] = "prettier --write . --loglevel silent";
       }
       await pkg.update({
         scripts: addScripts,
