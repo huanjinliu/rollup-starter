@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "dom",
+      {% brower => "dom", %}
       "es2015.promise",
       "es5"
     ],

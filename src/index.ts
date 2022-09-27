@@ -85,20 +85,34 @@ program
     // 4.如果项目跟路径不存在，需要记录创建操作
     const isNeedCreateDir = !fs.existsSync(rootPath);
 
+    // 5.是否使用pnpm
+    const isUsePnpm = await require(`是否使用pnpm管理依赖?`, true);
+
+    // 6.是否需要ts
+    const isUseTS = await require(`是否使用Typescript?`, true);
+
+    // 7.是否需要eslint
+    const isUseEslint = await require(`是否使用eslint控制代码格式(默认配套使用prettier)?`, false);
+
+    // 8.是否需要引入rollup的web服务
+    const isNeedServe = await require(`是否需要web服务(默认端口8080)?`, false);
+
+    // 9.是否直接跑起服务
+    const isStartServe = isNeedServe
+      ? await require(`是否在搭建完开启web服务?`, false)
+      : false;
+
     // 执行构建命令
     await build({
       workplace: rootPath,
       projectName,
       description,
-      newDir: isNeedCreateDir,
-      // 是否使用pnpm
-      pnpm: await require(`是否使用pnpm管理依赖?`, true),
-      // 是否需要ts
-      ts: await require(`是否使用Typescript?`, true),
-      // 是否需要引入rollup的web服务
-      webServer: await require(`是否需要开启web服务(默认端口8080)?`, false),
-      // 是否需要eslint + perttier
-      eslint: await require(`是否使用eslint控制代码格式(默认配套使用prettier)?`, false),
+      isNeedCreateDir,
+      isUsePnpm,
+      isUseTS,
+      isUseEslint,
+      isNeedServe,
+      isStartServe,
     });
   })
 
