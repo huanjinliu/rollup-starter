@@ -5,7 +5,7 @@ import { createNPM } from './utils/npm';
 import { createPackage } from './utils/pkg';
 import { createRollupConfigs } from './utils/rollup';
 import exec from './utils/exec';
-import copyFile from './utils/copy-file';
+import { copyFile } from './utils/copy-file';
 import replaceTemplate from './utils/replace-template';
 import getTemplatePath from './utils/get-template-path';
 import { createTask } from './utils/create-task';
@@ -110,7 +110,7 @@ const build = async ({
   
         await copyFile(
           getTemplatePath('tsconfig.json'),
-          `${workplace}/tsconfigs.json`,
+          `${workplace}/tsconfig.json`,
         );
       },
     );
