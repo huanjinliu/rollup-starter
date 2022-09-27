@@ -1,8 +1,9 @@
 import shell from 'shelljs';
 
 const exec = (command: string) => {
-  if (shell.exec(command).code === 0) return Promise.resolve();
-  return Promise.reject(new Error(`command is invalid`));
+  const result = shell.exec(command);
+  if (result.code === 0) return Promise.resolve();
+  return Promise.reject(result.stderr);
 };
 
 export default exec;

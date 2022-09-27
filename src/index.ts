@@ -24,7 +24,7 @@ program
           {
             type: 'input',
             name: 'name',
-            message: `input project's name`,
+            message: `输入项目名`,
           }
         ])
       return name;
@@ -39,7 +39,7 @@ program
           {
             type: 'input',
             name: 'description',
-            message: `input project's description`,
+            message: `输入项目描述`,
           }
         ])
       return description;
@@ -92,13 +92,13 @@ program
       description,
       newDir: isNeedCreateDir,
       // 是否使用pnpm
-      pnpm: await require(`use pnpm?`, true),
+      pnpm: await require(`是否使用pnpm管理依赖?`, true),
       // 是否需要ts
-      ts: await require(`do you need typescript?`, true),
-      // 是否需要eslint + perttier
-      eslint: await require(`do you need eslint(and prettier)?`, false),
+      ts: await require(`是否使用Typescript?`, true),
       // 是否需要引入rollup的web服务
-      webServer: await require(`do you need web server?`, false),
+      webServer: await require(`是否需要开启web服务(默认端口8080)?`, false),
+      // 是否需要eslint + perttier
+      eslint: await require(`是否使用eslint控制代码格式(默认配套使用prettier)?`, false),
     });
   })
 

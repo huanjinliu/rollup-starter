@@ -5,7 +5,7 @@ interface RollupConfigs {
   ts: boolean,
   webServer?: {
     name: string,
-    port?: number,
+    port: number,
   },
 }
 
@@ -16,20 +16,22 @@ export const createRollupConfigs = ({
   webServer,
 }: RollupConfigs) => {
   let content =[
-    // `import path from 'path';`,
     `import resolve from '@rollup/plugin-node-resolve';`,
     `import babel from '@rollup/plugin-babel';`,
-    `import commonjs from 'rollup-plugin-commonjs';`,
-    ts === true ? `import typescript from 'rollup-plugin-typescript';` : '',
+    `import commonjs from '@rollup/plugin-commonjs';`,
+    ts === true ? `import typescript from '@rollup/plugin-typescript';` : '',
     webServer ? `import serve from 'rollup-plugin-serve';` : '',
     webServer ? `import livereload from 'rollup-plugin-livereload';` : '',
+    webServer ? `import copy from 'rollup-plugin-copy';` : '',
     `\nexport default () => [`,
     `  {`,
     `    input: 'src/index.ts',`,
     `    output: {`,
     `      file: 'dist/index.js',`,
     `      format: '${webServer ? 'umd' : 'cjs'}',`,
-    webServer ? `      name: '${webServer.name}',` : '',
+    webServer
+      ? `      name: '${webServer.name}',`
+      : `      exports: 'default',`,
     `    },`,
     `    plugins: [ `,
     `      resolve(),`,
@@ -39,10 +41,17 @@ export const createRollupConfigs = ({
     `        babelHelpers: 'bundled',`,
     `      }),`,
     webServer ? [
+      `      copy({`,
+      `        targets: [`,
+      `          {`,
+      `            src: 'public/**',`,
+      `            dest: 'dist/'`,
+      `          }`,
+      `        ]`,
+      `      }),`,
       `      serve({`,
-      `        open: true,`,
-      `        openPage: '/public/index.html',`,
-      `        port: ${webServer.port ?? 8080},`,
+      `        contentBase: 'dist/',`,
+      `        port: ${webServer.port},`,
       `        verbose: false,`,
       `      }),`,
       `      livereload({`,
