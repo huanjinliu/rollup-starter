@@ -7,7 +7,7 @@ import isNonEmptyDir from './utils/is-nonempty-dir';
 import build from './build';
 
 program
-  .name('rollup-starter')
+  .name('rolluper')
   .description(pkg.description)
   .version('0.1.0', '-v, --version');
 

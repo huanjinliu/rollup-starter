@@ -4,8 +4,10 @@
 
 ### Installation
 
+`rollup-starter`名称被占用，所以只能使用`rolluper`作为包名。
+
 ```shell
-npm install rollup-starter -g
+npm install rolluper -g
 ```
 
 ### Usage
@@ -13,7 +15,7 @@ npm install rollup-starter -g
 1）使用`create` 命令开始项目的搭建
 
 ```shell
-rollup-starter create project-name
+rolluper create project-name
 ```
 
 2）根据自己的项目需求选择回答项

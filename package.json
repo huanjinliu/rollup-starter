@@ -1,6 +1,6 @@
 {
-  "name": "rollup-starter",
-  "version": "0.0.1",
+  "name": "rolluper",
+  "version": "1.0.0",
   "description": "start a rollup project quickly :)",
   "main": "lib/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "typescript"
   ],
   "bin": {
-    "rollup-starter": "link.js"
+    "rolluper": "link.js"
   },
   "author": "huanjin.liu@foxmail.com",
   "license": "MIT",
