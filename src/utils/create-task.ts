@@ -8,20 +8,24 @@ const isError = (err: unknown): err is Error => err instanceof Error;
  * @param {Function} task 任务执行函数
  * @param {string} description 任务描述
  */
-export const createTask = async <V>(description: string, task: (spinner: Spinner) => Promise<V>) => {
-  const spinner = createSpinner(description).start();
-  try {
-    const result = await task(spinner);
-    spinner.success();
-
-    return result;
-  } catch (err) {
-    if (isError(err)) {
-      spinner.error({
-        text: err.message
-      });
+export const createTask = <V>(description: string) => {
+  return {
+    run: async (task: (spinner: Spinner) => Promise<V>) => {
+      const spinner = createSpinner(description).start();
+      try {
+        const result = await task(spinner);
+        spinner.success();
+    
+        return result;
+      } catch (err) {
+        if (isError(err)) {
+          spinner.error({
+            text: err.message
+          });
+        }
+    
+        process.exit();
+      }
     }
-
-    process.exit();
   }
 };

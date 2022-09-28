@@ -7,6 +7,7 @@ specifiers:
   '@rollup/plugin-node-resolve': ^13.3.0
   '@types/inquirer': ^9.0.1
   '@types/shelljs': ^0.8.11
+  camel-case: ^4.1.2
   commander: ^9.4.0
   cross-env: ^7.0.3
   inquirer: ^8.0.0
@@ -14,6 +15,7 @@ specifiers:
   os: ^0.1.2
   rollup: ^2.78.1
   rollup-external-modules: ^2.0.0
+  rollup-plugin-clear: ^2.0.7
   rollup-plugin-commonjs: ^10.1.0
   rollup-plugin-copy: ^3.4.0
   rollup-plugin-json: ^4.0.0
@@ -23,6 +25,7 @@ specifiers:
   typescript: ^4.8.2
 
 dependencies:
+  camel-case: 4.1.2
   commander: 9.4.0
   inquirer: 8.2.4
   nanospinner: 1.1.0
@@ -39,6 +42,7 @@ devDependencies:
   cross-env: 7.0.3
   rollup: 2.79.1
   rollup-external-modules: 2.0.0
+  rollup-plugin-clear: 2.0.7
   rollup-plugin-commonjs: 10.1.0_rollup@2.79.1
   rollup-plugin-copy: 3.4.0
   rollup-plugin-json: 4.0.0
@@ -1492,6 +1496,13 @@ packages:
       get-intrinsic: 1.1.3
     dev: true
 
+  /camel-case/4.1.2:
+    resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
+    dependencies:
+      pascal-case: 3.1.2
+      tslib: 2.4.0
+    dev: false
+
   /caniuse-lite/1.0.30001412:
     resolution: {integrity: sha512-+TeEIee1gS5bYOiuf+PS/kp2mrXic37Hl66VY6EAfxasIk5fELTktK2oOezYed12H8w7jt3s512PpulQidPjwA==}
     dev: true
@@ -1969,6 +1980,12 @@ packages:
       is-unicode-supported: 0.1.0
     dev: false
 
+  /lower-case/2.0.2:
+    resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
@@ -2010,6 +2027,13 @@ packages:
     resolution: {integrity: sha512-yFvNYMig4AthKYfHFl1sLj7B2nkHL4lzdig4osvl9/LdGbXwrdFRoqBS98gsEsOakr0yH+r5NZ/1Y9gdVB8trA==}
     dependencies:
       picocolors: 1.0.0
+    dev: false
+
+  /no-case/3.0.4:
+    resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
+    dependencies:
+      lower-case: 2.0.2
+      tslib: 2.4.0
     dev: false
 
   /node-releases/2.0.6:
@@ -2065,6 +2089,13 @@ packages:
 
   /os/0.1.2:
     resolution: {integrity: sha512-ZoXJkvAnljwvc56MbvhtKVWmSkzV712k42Is2mA0+0KTSRakq5XXuXpjZjgAt9ctzl51ojhQWakQQpmOvXWfjQ==}
+    dev: false
+
+  /pascal-case/3.1.2:
+    resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
+    dependencies:
+      no-case: 3.0.4
+      tslib: 2.4.0
     dev: false
 
   /path-is-absolute/1.0.1:
@@ -2177,9 +2208,22 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
+  /rimraf/2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    hasBin: true
+    dependencies:
+      glob: 7.2.3
+    dev: true
+
   /rollup-external-modules/2.0.0:
     resolution: {integrity: sha512-Kq2S8FC9uQ8CGSJVhklqxBpVXtiqccqUQSMLg+EQa8cE5wLEocQSReNWRDUOV1d6FUdQNY2aWZt3AhPgBc5sdg==}
     engines: {node: '>=6.0.0'}
+    dev: true
+
+  /rollup-plugin-clear/2.0.7:
+    resolution: {integrity: sha512-Hg8NC3JcJBO1ofgyQC0IACpyKn/yhHPGZ3C7R3ubNGWUXy9JXHQrewk4J4hVcZznw6SOKayLsaNae596Rwt8Vg==}
+    dependencies:
+      rimraf: 2.7.1
     dev: true
 
   /rollup-plugin-commonjs/10.1.0_rollup@2.79.1:

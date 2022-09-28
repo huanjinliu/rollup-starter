@@ -12,7 +12,6 @@ const initProject = (options: { name: string; description: string }) => {
     name,
     version: '1.0.0',
     description,
-    main: 'index.js',
     scripts: {},
     author: '',
     license: 'ISC',

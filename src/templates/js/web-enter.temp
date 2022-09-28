@@ -1,0 +1,3 @@
+import {= libName =} from '../index';
+
+{= libName =}();

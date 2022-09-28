@@ -6,7 +6,10 @@
       "es2015.promise",
       "es5"
     ],
-    "module": "esnext",
+    "module": "ES2015",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

@@ -1,57 +1,17 @@
-import resolve from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-{% ts =>
-import typescript from '@rollup/plugin-typescript';
-%}
+import baseBuild from './build/base.build.js';
 {% web =>
-import serve from 'rollup-plugin-serve';
-import livereload from 'rollup-plugin-livereload';
-import copy from 'rollup-plugin-copy';
+import webBuild from './build/web.build.js';
 %}
 
-const config = {
-  input: 'src/index.{% ts => ts => js %}',
-  output: {
-    file: 'dist/index.js',
-    format: '{% web  => umd => cjs %}',
-    {% web => name: '{= libName =}', => exports: 'default', %}
-  },
-  plugins: [
-    resolve(),
-    commonjs(),
-    {% ts =>
-    typescript(),
-    %}
-    babel({
-      babelHelpers: 'bundled'
-    })
-  ]
-};
+/**
+ * 打包队列
+ */
+const buildQueue = [
+  baseBuild, 
+];
 
 {% web =>
-if (process.env.NODE_ENV === 'development') {
-  config.plugins.push(
-    copy({
-      targets: [
-        {
-          src: 'public/**',
-          dest: 'dist/'
-        }
-      ]
-    }),
-    serve({
-      open: true,
-      contentBase: 'dist/',
-      port: {= port:8080 =},
-      verbose: false,
-    }),
-    livereload({
-      watch: ['dist'],
-      verbose: false,
-    })
-  );
-}
+if (process.env.NODE_ENV === 'development') buildQueue.push(webBuild);
 %}
 
-export default config;
+export default buildQueue;

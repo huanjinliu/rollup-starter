@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript';
 import json from 'rollup-plugin-json';
 import rollupExternalModules from 'rollup-external-modules';
+import clear from 'rollup-plugin-clear';
 import copy from 'rollup-plugin-copy';
 
 export default {
@@ -14,6 +15,10 @@ export default {
     sourcemap: false
   },
   plugins: [
+    clear({
+      targets: ['lib'],
+      watch: process.env.ROLLUP_WATCH === 'true',
+    }),
     copy({
       targets: [
         {

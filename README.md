@@ -39,10 +39,11 @@ rolluper create project-name
 ✔ 安装typescript相关依赖及写入配置
 ✔ 安装web服务相关依赖及写入配置
 ✔ 安装Eslint相关依赖及写入配置
-✔ 写入src文件夹及打包入口文件
-✔ 生成rollup打包配置文件(rollup.config.js)
+✔ 生成src文件夹及入口文件
+✔ 生成web文件夹及入口文件
+✔ 生成rollup打包相关配置
 ✔ 更新package.json脚本命令
-✔ 启动服务：本地（http://localhost:8080/） 远程访问（http://xxx.xxx.xx:8080/）
+✔ 成功开启服务：本地（http://localhost:8080/） 远程访问（http://xxx.xxx.xx:8080/）
 ```
 
 4）搭建完成后即可享用
