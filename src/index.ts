@@ -7,9 +7,9 @@ import isNonEmptyDir from './utils/is-nonempty-dir';
 import build from './build';
 
 program
-  .name('rolluper')
+  .name(pkg.name)
   .description(pkg.description)
-  .version('0.1.0', '-v, --version');
+  .version(pkg.version, '-v, --version');
 
 program
   .command('create [name]')
