@@ -19,7 +19,9 @@ const config = {
     resolve(),
     commonjs(),
     {% ts =>
-    typescript(),
+    typescript({
+      declaration: false,
+    }),
     %}
     babel({
       babelHelpers: 'bundled'
