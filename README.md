@@ -1,6 +1,16 @@
 ## rollup-starter
 
-> 为简化Rollup打包的工具库项目起始搭建过程而生的终端命令行工具。
+> 为简化Rollup打包的工具库项目起始搭建过程而生的终端命令行工具（脚手架工具）。
+
+如果你现在需要开发一个工具库，可以尝试使用它，它将根据你的需求快速搭建起Rollup起始项目。
+
+为啥是Rollup，因为适合做工具库，所以如果想用来做复杂应用，那还是算了。
+
+当前可以满足的需求：
+
+* 想快速使用typescript写demo（这是我开发它的原因🤠）
+* 多人开发？来点eslint + prettier
+* 开发的工具库用于浏览器，需要一个浏览器测试环境
 
 ### Installation
 
@@ -12,10 +22,10 @@ npm install rolluper -g
 
 ### Usage
 
-1）使用`create` 命令开始项目的搭建
+1）使用`create` 命令开始项目的搭建，项目名可选
 
 ```shell
-rolluper create project-name
+rolluper create [project-name]
 ```
 
 2）根据自己的项目需求选择回答项
@@ -48,6 +58,3 @@ rolluper create project-name
 
 4）搭建完成后即可享用
 
-### Other
-
-该工具的诞生存粹为了偷自个的懒，如果你有其他的集成需求，可向我提出Issue :)

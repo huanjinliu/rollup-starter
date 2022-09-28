@@ -238,7 +238,7 @@ const build = async ({
           ? "cross-env NODE_ENV=development npm run watch --silent"
           : `node dist/${camelCase(projectName)}.js`,
         "build": "rollup --config",
-        "watch": "rollup --config -w",
+        "watch": "rollup --config -w --silent",
       };
       if (isUseTS) {
         addScripts["build:type"] = "tsc";
