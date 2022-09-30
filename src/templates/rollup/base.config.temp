@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import clear from 'rollup-plugin-clear';
+import { terser } from 'rollup-plugin-terser';
 {% ts =>
 import typescript from '@rollup/plugin-typescript';
 %}
@@ -36,5 +37,9 @@ const config = {
     })
   ]
 };
+
+if (process.env.NODE_ENV !== 'development') {
+  config.plugins.push(terser());
+}
 
 export default config;

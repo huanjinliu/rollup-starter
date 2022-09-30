@@ -67,6 +67,7 @@ const build = async ({
       await npm.add([
         'rollup',
         'rollup-plugin-clear',
+        'rollup-plugin-terser',
         '@rollup/plugin-commonjs',
         '@rollup/plugin-node-resolve',
       ], { isDevDependencies: true });
