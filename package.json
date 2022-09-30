@@ -6,7 +6,11 @@
   "scripts": {
     "build": "rollup --config",
     "watch": "rollup --config --silence -w",
-    "link": "npm run build && sudo npm link"
+    "link": "npm run build && sudo npm link",
+    "publish": "npm run build & npm publish",
+    "publish:major": "npm version major && npm run publish",
+    "publish:minor": "npm version minor && npm run publish",
+    "publish:patch": "npm version patch && npm run publish"
   },
   "repository": {
     "type": "git",
