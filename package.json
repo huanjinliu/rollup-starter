@@ -1,6 +1,6 @@
 {
   "name": "rolluper",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "start a rollup project quickly :)",
   "main": "lib/index.js",
   "scripts": {
