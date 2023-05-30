@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": [
       {% brower => "dom", %}
-      "es2015.promise",
-      "es5"
+      "ESNext",
+      "WebWorker"
     ],
-    "module": "ES2015",
+    "module": "ESNext",
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",
